@@ -38,16 +38,15 @@ function Slider({ data }: IMOVIESlider) {
   };
   const [leaving, setLeaving] = useState(false);
   const [$nextSlide, setNextSlide] = useState<boolean>(false);
-  const pathName = useLocation().pathname.split("/")[1];
-  const onBoxClicked = (movieId: number) => {
-    const path = pathName ? `/${pathName}/${movieId}` : `/movies/${movieId}`;
+  const pathName = useLocation().pathname.split("/")[2];
+  const onBoxClicked = (id: number) => {
+    const path = pathName ? `/nomadCoder-reactJS-Graduation/${pathName}/${id}` : `/nomadCoder-reactJS-Graduation/movies/${id}`;
     navigate(`${path}`);
   };
 
-  const matchProgram = useMatch(`/${useLocation().pathname.split("/")[1]}/:id`);
-
+  const matchProgram = useMatch(`/nomadCoder-reactJS-Graduation/${useLocation().pathname.split("/")[2]}/:id`);
   function onOverlayClick() {
-    const path = pathName === "movies" ? `/` : `/${pathName}`;
+    const path = pathName === "movies" ? `/nomadCoder-reactJS-Graduation` : `/nomadCoder-reactJS-Graduation/${pathName}`;
     navigate(`${path}`);
   }
   const clickedBox =

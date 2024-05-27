@@ -1,15 +1,15 @@
-import { getLatestMovies, useMultipleFetchingMovies } from "../api";
+import { useMultipleFetchingMovies } from "../api";
 import styled from "styled-components";
 import { makeImagePath } from "./utils";
 import Slider from "../components/Slider";
 
 function Home() {
+  
   const [
     { data: nowPlayingData, isLoading: nowPlayingIsLoading },
     { data: topRatedData, isLoading: topRatedIsLoading },
     { data: upcomingData, isLoading: upcomingIsLoading },
   ] = useMultipleFetchingMovies();
-  getLatestMovies().then(res => console.log(res))
   const isLoading =
     nowPlayingIsLoading || topRatedIsLoading || upcomingIsLoading;
   return (

@@ -129,3 +129,7 @@ export const useMultipleFetchingTv = () => {
   );
   return [airing, popular, topRated];
 };
+
+export const getSearch = (search: string) => {
+  return fetch(`${BASE_PATH}/search/movie?query=${search}&api_key=${API_KEY}`).then(res => res.json)
+}
